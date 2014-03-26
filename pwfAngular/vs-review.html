@@ -1,0 +1,93 @@
+﻿
+
+<script type="text/ng-template" id="riskAdd.html">
+    <div>
+        <div class="clear"></div>
+        <section class="grid_12">
+            <div class="block-border">
+                <form class="block-content form" id="simple_form" action="">
+                    <h1>Risk Register - manual entry</h1>
+                    <p style="font-weight:bold;">
+                       Gwyn - some new text here!
+                         
+                    </p>
+                    <fieldset>
+                        <legend>Elemental Ref</legend>
+                        <table style="width:100%">
+                            <tr>
+                                <td style="width:20%"><label style="white-space:nowrap">CAWS Code &nbsp;</label></td>
+                                <td style="width:80%"><input kendo-auto-complete k-options="CawsOptions" name="caws" id="caws" ng-change="cawsChanged()" ng-model="manual.register.caws" style="width:50%; display: inline-block;" /></td>
+                            </tr>
+                            <tr style="padding-top:1em;">
+                                <td style="width:20%"><label style="white-space:nowrap">CAWS Description &nbsp;</label></td>
+                                <td style="width:80%; display: inline-block;"><input kendo-auto-complete k-options="CawsDescOptions" name="cawsDescription" id="cawsDescription" ng-model="manual.register.cawsDescription" style="width:100%" /></td>
+                            </tr>
+                        </table>
+
+                    </fieldset>
+                    <fieldset>
+                        <legend>Risk</legend>
+                        <table style="width:100%;">
+                            <tr>
+                                <td style="width:20%"><label>Hazard&nbsp;</label></td>
+                                <td style="width:80%"><textarea class="full-width" ng-model="manual.register.hazard" name="hazard" rows="4">{{manual.register.hazard}}</textarea><br /></td>
+                            </tr>
+                            <tr>
+                                <td style="width:20%"><label>Risk&nbsp;</label></td>
+                                <td style="width:80%; display: inline-block;">
+                                    <select name="risk" ng-model="manual.register.risk" class="full-width">
+                                        <option>QM</option>
+                                        <option>OHS</option>
+                                        <option>CDM</option>
+                                        <option>EM</option>
+                                        <option>Other</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:20%"><label>Owner&nbsp;</label></td>
+                                <td style="width:80%"><input kendo-auto-complete k-options="employeeNameOptions" name="Owner" id="Owner" ng-model="manual.register.owner" style="width:100%" /></br></td>
+                            </tr>
+                            <tr>
+                                <td style="width:20%"><label>Action&nbsp;</label></td>
+                                <td style="width:80%"><textarea class="full-width" ng-model="manual.register.action" name="action" rows="4">{{manual.register.action}}</textarea></td>
+                            </tr>
+
+                        </table>`
+
+                    </fieldset>
+                    <button class="btn btn-primary" ng-click="addRisk()">Add</button>
+                    <button class="btn btn-warning" ng-click="cancelAddRisk()">Cancel</button>
+                </form>
+            </div>
+        </section>
+    </div>
+</script><!-- start of panel -->
+<section class="grid_12 ">
+    <div class="block-border">
+        <div class="block-content">
+            <h1 style="line-height: 1.2em; font-size: 1.1em"> Risk Register for {{selectedProject.projectNumber}} – {{selectedProject.name}} </h1>
+
+            <script type="text/ng-template" id="simple-grid.html" src="js/grid/simple-grid.html">
+            </script>
+            <div id="content">
+                <div id="overview">
+
+                    <div ng-hide="user.showAddRisk" ng-animate=" 'animate' ">
+                        <div simple-grid="myGridConfig"></div>
+                        <div class="align-right">
+                            <button class="k-button" ng-click="show_addRiskForm_click()">Add</button>
+                        </div>
+                    </div>
+                    <div ng-show="user.showAddRisk" ng-animate=" 'animate' ">
+                        <div ng-include="'riskAdd.html'"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- end of panel -->

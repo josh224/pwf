@@ -1,0 +1,50 @@
+ <!-- start of panel -->
+<section class="grid_12 " ng-show="preferences.ShowIntroduction">
+    <div class="block-border">
+        <div class="block-content">
+            <h1 style="line-height: 1.2em; font-size: 1.1em">Activity Log</h1>
+            <table style="width:100%">
+                <tr>
+                    <td style="padding: 1.4em"><img style="vertical-align:text-top" src="images/introImg01.png" height="150" width="200"/></td>
+                    <td><p>pppp</p></td>
+                </tr>
+            </table>
+            
+            
+            <button class="k-button" ng-click="projectsPage()">Enter</button>
+            <button class="k-button" ng-hide="true" ng-click="clear()">Clear local Storage</button>
+
+            <input type="button" id="btnPost" ng-hide="true" value="Send" />
+            <script type="text/javascript">
+                $(function () {
+                    $("#btnPost").bind("click", function () {
+                        //Create a Form
+                        var $form = $("<form/>").attr("id", "data_form")
+                                        .attr("action", "pop.aspx")
+                                        .attr("method", "post");
+                        $("body").append($form);
+
+                        //Append the values to be send
+                        AddParameter($form, "name", $("#txtName").val());
+                        AddParameter($form, "technology", $("#ddlTechnolgy").val());
+
+                        //Send the Form
+                        $form[0].submit();
+                    });
+                });
+                function AddParameter(form, name, value) {
+                    var $input = $("<input />").attr("type", "hidden")
+                                            .attr("name", name)
+                                            .attr("value", value);
+                    form.append($input);
+                }
+            </script>
+
+
+
+
+        </div>
+    </div>
+</section>
+
+<!-- end of panel -->

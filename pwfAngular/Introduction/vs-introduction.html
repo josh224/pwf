@@ -1,0 +1,83 @@
+ <!-- start of panel -->
+<section class="grid_12 " ng-show="preferences.ShowIntroduction">
+    <div class="block-border">
+        <div class="block-content">
+            <h1 style="line-height: 1.2em; font-size: 1.1em">Introduction</h1>
+            <table style="width:100%">
+                <tr>
+                    <td style="padding: 1.4em"><img style="vertical-align:text-top" src="images/introImg01.png" height="150" width="200"/></td>
+                    <td><p>The Hoare Lea 'automated Project Management Plan' (e-PMP) is a software tool, developed by the IM Group and designed to facilitate completion of an Initial Brief and Review and set-up of the PMP at the early stages of management of a project, following completion of a Project Notification.<br/>
+The tool is fully compliant with ISO 9001 and Hoare Lea Quality Management System, and replicates completion of an Initial Brief and Review using the standard form (IMF63). It incorporates a risk analysis section based on specific project criteria such as project (design or report and advisory) and appointment type, completion of which generates an appropriate (to the level of risk) PMP, fully populated project directory and risk register.<br/>
+The tool is designed to be intuitive in use and is intended to be a quick and effective way of initially setting-up a project for appropriate management going forward.</p>
+<p>Press Enter below to continue.</p></td>
+                </tr>
+            </table>
+            
+            
+            <button class="k-button" ng-click="projectsPage()">Enter</button>
+            <button class="k-button" ng-hide="false" ng-click="clear()">Clear local Storage</button>
+
+            <input type="button" id="btnPost" ng-hide="true" value="Send" />
+            <!--<a  ng-href="{{a.mailToOutlookString}}">open in outlook</a>{{a.mailToOutlookString}}-->
+            <script type="text/javascript">
+                $(function () {
+                    $("#btnPost").bind("click", function () {
+                        //Create a Form
+                        var $form = $("<form/>").attr("id", "data_form")
+                                        .attr("action", "pop.aspx")
+                                        .attr("method", "post");
+                        $("body").append($form);
+
+                        //Append the values to be send
+                        AddParameter($form, "arraySize", 3);
+                        AddParameter($form, "array"+1, "C10###demolition###asbestos###QA###jj###no action###true");
+                        AddParameter($form, "array"+2, "V20###street lighting###66666### ### ###cccc### ");
+                        AddParameter($form, "array"+3, "W12###comms###Biofuel###QM###Josh Jones### ### ");
+                        AddParameter($form, "name", "101 chatham");
+                        AddParameter($form, "number", "99899");
+                        AddParameter($form, "office", "Cardiff");
+                        AddParameter($form, "revision", "1");
+                        AddParameter($form, "userName", "jj");
+                        AddParameter($form, "teamLeader", "Peter Wells");
+                        AddParameter($form, "reviewer", "Josh hJones");
+                        AddParameter($form, "date", "09 09 2123");
+
+                        //Send the Form
+                        $form[0].submit();
+                    });
+                });
+                function AddParameter(form, name, value) {
+                    var $input = $("<input />").attr("type", "hidden")
+                                            .attr("name", name)
+                                            .attr("value", value);
+                    form.append($input);
+                }
+            </script>
+
+
+
+
+            <br />
+            <br />
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+             <div id="gauge-container">
+                <div id="gauge"></div>
+            </div>
+
+
+</section>
+
+<!-- end of panel -->

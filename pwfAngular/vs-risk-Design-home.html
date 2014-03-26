@@ -1,0 +1,192 @@
+<style>
+    .example-animate-container {
+        position:relative;
+        background:white;
+        border:1px solid black;
+        height:40px;
+        overflow:hidden;
+    }
+
+    .example-animate-container > div {
+        padding:10px;
+    }
+
+    .include-example.ng-enter, .include-example.ng-leave {
+        -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+        -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+        -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+        transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        display:block;
+        padding:10px;
+    }
+
+    .include-example.ng-enter {
+        top:-50px;
+    }
+    .include-example.ng-enter.ng-enter-active {
+        top:0;
+    }
+
+    .include-example.ng-leave {
+        top:0;
+    }
+    .include-example.ng-leave.ng-leave-active {
+        top:50px;
+    }
+
+</style>
+<!-- start of panel -->
+
+<section class="grid_12" >
+    <div class="block-border">
+        <div class="block-content">
+            <h1 style="line-height: 1.2em; font-size: 1.1em">Risk Analysis for {{ selectedProject.projectNumber }} - {{ selectedProject.name }}</h1>
+            <form class="form">
+                <fieldset class="grey-bg" style="min-height: 25px;">
+                    <legend>Options</legend>
+                    <table>
+                        <tr>
+                            <td width="150" height="30"><strong>&nbsp;Role:</strong></td>
+                            <td width="100" align="left" valign="middle" nowrap>&nbsp;<input type="radio"
+                                                                                             ng-model="role"
+                                                                                             value="0"
+                                                                                             ng-change="calculateEnums()"
+                                                                                             id="optDesign"/>
+                                &nbsp;<label for = "optDesign">Design</label>
+                            </td>
+                            <td width="185" align="left" valign="middle" nowrap>&nbsp;<input type="radio"
+                                                                                             ng-model="role"
+                                                                                             value="2048"
+                                                                                             ng-change="calculateEnums()"
+                                                                                             id="optRandA"/>
+                                &nbsp;<label for = "optRandA">Report and Advisory</label>
+                            </td>
+                            <td align="left" valign="middle"></td>
+                        </tr>
+
+                        <tr ng-show="role==0">
+                            <td height="30">&nbsp;<strong>Location:</strong></td>
+                            <td align="left" valign="middle">&nbsp;<input type="radio"
+                                                                          ng-model="location"
+                                                                          value="16"
+                                                                          ng-change="calculateEnums()"
+                                                                          id="optUk"/>
+                                &nbsp;<label for = "optUk">UK</label>
+                            </td>
+                            <td align="left" valign="middle">&nbsp;<input type="radio"
+                                                                          ng-model="location"
+                                                                          value="32"
+                                                                          ng-change="calculateEnums()"
+                                                                          id="optOverseas"/>
+                                &nbsp;<label for = "optOverseas">Overseas</label>
+                            </td>
+                            <td width="177" align="left" valign="middle">&nbsp;</td>
+                        </tr>
+
+                        <tr ng-show="role==0">
+                            <td height="30">&nbsp;<strong>Description:</strong></td>
+                            <td align="left" valign="middle">&nbsp;<input type="radio"
+                                                                          ng-model="description"
+                                                                          value="1"
+                                                                          ng-change="calculateEnums()"
+                                                                          id="optNew"/>
+                                &nbsp;<label for = "optNew">New</label>
+                            </td>
+                            <td align="left" valign="middle">&nbsp;<input type="radio"
+                                                                          ng-model="description"
+                                                                          value="2"
+                                                                          ng-change="calculateEnums()"
+                                                                          id="optRefurb"/>
+                                &nbsp;<label for = "optRefurb">Refurbishment</label>
+                            </td>
+                            <td align="left" valign="middle" nowrap>&nbsp;<input type="radio"
+                                                                                 ng-model="description"
+                                                                                 value="4"
+                                                                                 ng-change="calculateEnums()"
+                                                                                 id="optHeritage"/>
+                                &nbsp;<label for = "optHeritage">Refurbishment</label>
+                            </td>
+                        </tr>
+                        <tr ng-show="role==0">
+                            <td height="30" valign="middle" nowrap>&nbsp;<strong>Appointment:</strong></td>
+                            <td colspan="3" align="left">&nbsp;<select name="select" ng-change="calculateEnums()" ng-model="appointmentSelected" ng-options="a.value as a.name for a in appointments">
+                            </select></td></tr>
+
+                    </table>
+                </fieldset>
+            </form>
+            <div class="include-example">
+
+                <br />
+
+                <!-- start of panel -->
+                <div>
+                    <div class="infos">
+                        <h3 ng-bind="partials.riskHeading"></h3>
+                        <p>Gwyn intro needed</p>
+                    </div>
+
+
+                </div><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                <!-- end of panel
+                <table class="table">
+                    <tr style="vertical-align: middle;">
+                        <td style="vertical-align: middle;"><span class="number">01</span>Has a Pre-appointment risk analysis been completed?<a  title="Gwyn - we should have these wherever we can!" ui-jq="tooltip"><img src="icons/fugue/question-white.png" width="16" height="16" class="float-right"></a></td><td style="vertical-align: middle;"><input type="checkbox" ng-click="addAnswers()" ng-model="questions.q1_Design"></td><td style="vertical-align: middle;"><span class="number red" ng-show="questions.q1_Design">3</span> </td>
+                    </tr>
+                    <tr style="vertical-align: middle;">
+                        <td style="vertical-align: middle;"><span class="number">02</span>Are there residual hazards from the pre-appointment analysis (list on risk register)?</td><td style="vertical-align: middle;"><input type="checkbox" ng-click="addAnswers()" ng-model="questions.q2_Design"></td><td style="vertical-align: middle;"><span class="number red" ng-show="questions.q2_Design">3</span> </td>
+                    </tr>
+                    <tr style="vertical-align: middle;">
+                        <td style="vertical-align: middle;"><span class="number">03</span>Is a (standard) HL fee proposal in place?</td><td style="vertical-align: middle;"><input type="checkbox" ng-click="addAnswers()" ng-model="questions.q3_Design"></td><td style="vertical-align: middle;"><span class="number red" ng-show="questions.q3_Design">1</span> </td>
+                    </tr>
+                    <tr style="vertical-align: middle;">
+                        <td style="vertical-align: middle;"><span class="number">04</span>Has the contract of appointment been finalised?<a  title="Gwyn - we should have these wherever we can!" ui-jq="tooltip"><img src="icons/fugue/question-white.png" width="16" height="16" class="float-right"></a></td><td style="vertical-align: middle;"><input type="checkbox" ng-click="addAnswers()" ng-model="questions.q4_Design"></td><td style="vertical-align: middle;"><span class="number red" ng-show="questions.q4_Design">2</span> </td>
+                    </tr>
+                    <tr style="vertical-align: middle;">
+                        <td style="vertical-align: middle;"><span class="number">05</span>Are HL duties clearly defined and available?</td><td style="vertical-align: middle;"><input type="checkbox"  ng-click="addAnswers()"ng-model="questions.q5_Design"></td><td style="vertical-align: middle;"><span class="number red" ng-show="questions.q6_Design">5</span> </td>
+                    </tr>
+                    <tr style="vertical-align: middle;">
+                        <td style="vertical-align: middle;"><span class="number">06</span>Will HL duties change (novation etc)?<a  title="Gwyn - we should have these wherever we can!" ui-jq="tooltip"><img src="icons/fugue/question-white.png" width="16" height="16" class="float-right"></a></td><td style="vertical-align: middle;"><input type="checkbox"  ng-click="addAnswers()"ng-model="questions.q6_Design"></td><td style="vertical-align: middle;"><span class="number red" ng-show="questions.q6_Design">1</span> </td>
+                    </tr>
+                    <tr style="vertical-align: middle;">
+                        <td style="vertical-align: middle;"><span class="number">07</span>Is Client briefing information available?<a  title="Gwyn - we should have these wherever we can!" ui-jq="tooltip"><img src="icons/fugue/question-white.png" width="16" height="16" class="float-right"></a></td><td style="vertical-align: middle;"><input type="checkbox"  ng-click="addAnswers()"ng-model="questions.q7_Design"></td><td style="vertical-align: middle;"><span class="number red" ng-show="questions.q7_Design">1</span> </td>
+                    </tr>
+                    <tr style="vertical-align: middle;">
+                        <td style="vertical-align: middle;"><span class="number">08</span>Have legislative/standards/guides been identified?<a  title="Gwyn - we should have these wherever we can!" ui-jq="tooltip"><img src="icons/fugue/question-white.png" width="16" height="16" class="float-right"></a></td><td style="vertical-align: middle;"><input type="checkbox"  ng-click="addAnswers()"ng-model="questions.q8_Design"></td><td style="vertical-align: middle;"><span class="number red" ng-show="questions.q8_Design">4</span> </td>
+                    </tr>
+                    <tr style="vertical-align: middle;">
+                        <td style="vertical-align: middle;"><span class="number">09</span>Is HL design programme adequate?<a  title="Gwyn - we should have these wherever we can!" ui-jq="tooltip"><img src="icons/fugue/question-white.png" width="16" height="16" class="float-right"></a></td><td style="vertical-align: middle;"><input type="checkbox"  ng-click="addAnswers()"ng-model="questions.q9_Design"></td><td style="vertical-align: middle;"><span class="number red" ng-show="questions.q9_Design">1</span> </td>
+                    </tr>
+                    <tr style="vertical-align: middle;">
+                        <td style="vertical-align: middle;"><span class="number">10</span>Any there any special/unusual requirements (list)?<a  title="Gwyn - we should have these wherever we can!" ui-jq="tooltip"><img src="icons/fugue/question-white.png" width="16" height="16" class="float-right"></a></td><td style="vertical-align: middle;"><input type="checkbox"  ng-click="addAnswers()"ng-model="questions.q10_Design"></td><td style="vertical-align: middle;"><span class="number red" ng-show="questions.q10_Design">3</span> </td>
+                    </tr>
+                    <tr style="vertical-align: middle;"></tr>
+
+                </table> -->
+
+
+
+                <div ng-bind-html-unsafe="partials.questionsPage"></div>
+
+
+
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- end of panel -->

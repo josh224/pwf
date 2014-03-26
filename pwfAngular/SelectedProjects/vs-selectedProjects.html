@@ -1,0 +1,628 @@
+<section class="grid_12" ng-init="user.minimiseTeam='false'">
+    <div class="block-border">
+        <div class="block-content">
+            <div ng-hide="user.minimiseTeam">
+                <h1 style="line-height: 1.2em;font-size: 1.1em" id="pingu">Project Team<a class="jjj" ng-click="user.minimiseTeam=true;" style="line-height: 1em; font-size: 1em"><img src="images/icons/fugue/chevron.png" width="16" height="16"></a></h1>
+
+                <form class="form" method="post" action="" style="margin-bottom:0px;">
+
+                    <table ng-show="choice==='email'" style="table-layout: fixed; width: 100%; margin: 0px;">
+
+                        <tr>
+                            <td width="49.5%" style="min-width: 49%;">
+                                <fieldset class="grey-bg sizer" style="min-height: 399px; margin-bottom: 1.667em;" id="col1">
+                                    <legend style="font-weight:bold">
+                                        <img id="Pic" src="img/internal-contact.gif" width="16" height="16">Internal Project Team&nbsp;<img id="internalInfio" src="images/information-blue.png" width="16" height="16">
+                                    </legend>
+                                    <table style="width: 100%; padding-right:2em;">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 32%">
+                                                    <label for="name1">Role</label>
+                                                </th>
+                                                <th style="width: 2%">
+                                                    <label> </label>
+                                                </th>
+                                                <th style="width: 32%">
+                                                    <label for="role1">Name</label>
+                                                </th>
+                                                <th style="width: 2%">
+                                                    <label> </label>
+                                                </th>
+                                                <th style="width: 32%">
+                                                    <label>Email</label>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+
+                                                <td>
+                                                    <label style="font-size:1em;">Managing Partner:</label>
+                                                    <input kendo-auto-complete k-options="RoleOptions" style="width:100%;" ng-hide="true" ng-init="selectedProject.initialBriefData.present1.role='Managing Partner'" ng-model="selectedProject.initialBriefData.present1.role">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeNameOptions" style="width:100%;" ng-init="oldvalue=''" ng-focus="oldvalue=selectedProject.initialBriefData.present1.name" ng-blur="nameChanged(oldvalue, 1)" ng-model="selectedProject.initialBriefData.present1.name" />
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeEmailOptions" style="width:100%;" ng-change="emailChangedInternal(1)" ng-model="selectedProject.initialBriefData.present1.email">
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label style="font-size:1em;">Project Manager:</label>
+                                                    <input kendo-auto-complete k-options="RoleOptions" style="width:100%;" ng-hide="true" ng-init="selectedProject.initialBriefData.present2.role='Project Manager'" ng-model=" selectedproject.initialbriefdata.present2.role">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeNameOptions" style="width:100%;" ng-init="oldvalue=''" ng-focus="oldvalue=selectedProject.initialBriefData.present2.name" ng-blur="nameChanged(oldvalue, 2)" ng-model="selectedProject.initialBriefData.present2.name" />
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeEmailOptions" style="width:100%;" ng-change="emailChangedInternal(2)" ng-model="selectedProject.initialBriefData.present2.email">
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+
+                                                <td>
+                                                    <input kendo-auto-complete k-options="RoleOptions" style="width:100%;" ng-model="selectedProject.initialBriefData.present3.role">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeNameOptions" style="width:100%;" ng-init="oldvalue=''" ng-focus="oldvalue=selectedProject.initialBriefData.present3.name" ng-blur="nameChanged(oldvalue, 3)" ng-model="selectedProject.initialBriefData.present3.name" />
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeEmailOptions" style="width:100%;" ng-change="emailChangedInternal()" ng-model="selectedProject.initialBriefData.present3.email">
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+
+                                                <td>
+                                                    <input kendo-auto-complete k-options="RoleOptions" style="width:100%;" ng-model="selectedProject.initialBriefData.present4.role">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeNameOptions" style="width:100%;" ng-init="oldvalue=''" ng-focus="oldvalue=selectedProject.initialBriefData.present4.name" ng-blur="nameChanged(oldvalue, 4)" ng-model="selectedProject.initialBriefData.present4.name" />
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeEmailOptions" style="width:100%;" ng-change="emailChangedInternal()" ng-model="selectedProject.initialBriefData.present4.email">
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+
+                                                <td>
+                                                    <input kendo-auto-complete k-options="RoleOptions" style="width:100%;" ng-model="selectedProject.initialBriefData.present5.role">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeNameOptions" style="width:100%;" ng-init="oldvalue=''" ng-focus="oldvalue=selectedProject.initialBriefData.present5.name" ng-blur="nameChanged(oldvalue, 5)" ng-model="selectedProject.initialBriefData.present5.name" />
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeEmailOptions" style="width:100%;" ng-change="emailChangedInternal()" ng-model="selectedProject.initialBriefData.present5.email">
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+
+                                                <td>
+                                                    <input kendo-auto-complete k-options="RoleOptions" style="width:100%;" ng-model="selectedProject.initialBriefData.present6.role">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeNameOptions" style="width:100%;" ng-init="oldvalue=''" ng-focus="oldvalue=selectedProject.initialBriefData.present6.name" ng-blur="nameChanged(oldvalue, 6)" ng-model="selectedProject.initialBriefData.present6.name" />
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeEmailOptions" style="width:100%;" ng-change="emailChangedInternal()" ng-model="selectedProject.initialBriefData.present6.email">
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+
+                                                <td>
+                                                    <input kendo-auto-complete k-options="RoleOptions" style="width:100%;" ng-model="selectedProject.initialBriefData.present7.role">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeNameOptions" style="width:100%;" ng-init="oldvalue=''" ng-focus="oldvalue=selectedProject.initialBriefData.present7.name" ng-blur="nameChanged(oldvalue, 7)" ng-model="selectedProject.initialBriefData.present7.name" />
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeEmailOptions" style="width:100%;" ng-change="emailChangedInternal()" ng-model="selectedProject.initialBriefData.present7.email">
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+
+                                                <td>
+                                                    <input kendo-auto-complete k-options="RoleOptions" style="width:100%;" ng-model="selectedProject.initialBriefData.present8.role">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeNameOptions" style="width:100%;" ng-init="oldvalue=''" ng-focus="oldvalue=selectedProject.initialBriefData.present8.name" ng-blur="nameChanged(oldvalue, 8)" ng-model="selectedProject.initialBriefData.present8.name" />
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeEmailOptions" style="width:100%;" ng-change="emailChangedInternal()" ng-model="selectedProject.initialBriefData.present8.email">
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td colspan="5">
+                                                    <span class="label">Notes</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="5">
+                                                    <textarea name="textarea2" style="width:100%; height: auto;" rows="6" class="expandings ng-pristine ng-valid" ng-model="selectedProject.notes1"></textarea>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                </fieldset>
+                            </td>
+                            <td width="1%"> </td>
+                            <td width="49.5%" style="min-width: 49%;">
+                                <fieldset class="grey-bg sizer" style="min-height: 399px;margin-bottom: 1.667em;" id="col2">
+                                    <legend style="font-weight:bold">
+                                        <img id="externalInfiopic" src="img/external-contact.gif" width="16" height="16">External Project Team<img id="externalInfio" src="images/information-blue.png" width="16" height="16">
+                                    </legend>
+                                    <table style="width: 100%">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 32%">
+                                                    <label>Role</label>
+                                                </th>
+                                                <th style="width: 2%">
+                                                    <label> </label>
+                                                </th>
+                                                <th style="width: 32%">
+                                                    <label>Name</label>
+                                                </th>
+                                                <th style="width: 2%">
+                                                    <label> </label>
+                                                </th>
+                                                <th style="width: 32%">
+                                                    <label>Email</label>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <label style="font-size:1em;">Architect:</label>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-hide="true" ng-init="selectedProject.projectData.external1.role='Architect'" ng-model="selectedProject.projectData.external1.role">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-init="oldvalue=''" ng-focus="oldvalue=selectedProject.projectData.external1.name" ng-blur="nameChangedExternal(oldvalue, 1)" ng-model="selectedProject.projectData.external1.name">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-change="emailChangedExternal()" ng-model="selectedProject.projectData.external1.email">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label style="font-size:1em;">Structural Engineer:</label>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-hide="true" ng-init="selectedProject.projectData.external2.role='Structural Engineer'" ng-model="selectedProject.projectData.external2.role">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-init="oldvalue=''" ng-focus="oldvalue=selectedProject.projectData.external12.name" ng-blur="nameChangedExternal(oldvalue, 2)" ng-model="selectedProject.projectData.external2.name">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-change="emailChangedExternal()" ng-model="selectedProject.projectData.external2.email">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label style="font-size:1em;">QS:</label>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-hide="true" ng-init="selectedProject.projectData.external3.role='QS'" ng-model="selectedProject.projectData.external3.role">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-init="oldvalue=''" ng-focus="oldvalue=selectedProject.projectData.external13.name" ng-blur="nameChangedExternal(oldvalue, 3)" ng-model="selectedProject.projectData.external3.name">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-change="emailChangedExternal()" ng-model="selectedProject.projectData.external3.email">
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label style="font-size:1em;">CDM-C:</label>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-hide="true" ng-init="selectedProject.projectData.external4.role='CDM-C'" ng-model="selectedProject.projectData.external4.role">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-model="selectedProject.projectData.external4.name">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-change="emailChangedExternal()" ng-model="selectedProject.projectData.external4.email">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-init="oldvalue=''" ng-focus="oldvalue=selectedProject.projectData.external15.name" ng-blur="nameChangedExternal(oldvalue, 5)" ng-model="selectedProject.projectData.external5.role">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-model="selectedProject.projectData.external5.name">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-change="emailChangedExternal()" ng-model="selectedProject.projectData.external5.email">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-init="oldvalue=''" ng-focus="oldvalue=selectedProject.projectData.external16.name" ng-blur="nameChangedExternal(oldvalue, 6)" ng-model="selectedProject.projectData.external6.role">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-model="selectedProject.projectData.external6.name">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-change="emailChangedExternal()" ng-model="selectedProject.projectData.external6.email">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-init="oldvalue=''" ng-focus="oldvalue=selectedProject.projectData.external17.name" ng-blur="nameChangedExternal(oldvalue, 7)" ng-model="selectedProject.projectData.external7.role">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-model="selectedProject.projectData.external7.name">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-change="emailChangedExternal()" ng-model="selectedProject.projectData.external7.email">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-init="oldvalue=''" ng-focus="oldvalue=selectedProject.projectData.external18.name" ng-blur="nameChangedExternal(oldvalue, 8)" ng-model="selectedProject.projectData.external8.role">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-model="selectedProject.projectData.external8.name">
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input kendo-auto-complete k-options="employeeaEmailOptions" style="width:100%;" ng-change="emailChangedExternal()" ng-model="selectedProject.projectData.external8.email">
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td colspan="5">
+                                                    <span class="label">Notes</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="5">
+                                                    <textarea name="textarea2" style="width:100%; height: auto;" rows="6" class="expanding ng-pristine ng-valid" ng-model="selectedProject.notes"></textarea>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </fieldset>
+
+                                <!--<div class="float-right" style="margin-bottom: 3em;">
+                                <button class="k-button" style="background:red" ng-click="GoToRiskRegister()">Risk Register</button>
+                                </div>-->
+
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="float-right">
+                        <button type="button" id="getTeamPdf" class="k-button red" ng-click='getPDF("pdf");' style="margin-right: 0.1em;">
+                            <img src="images/icons/finefiles/32/pdf.png" style="height:16px;width:16px; vertical-align: auto" /> pdf
+                        </button>
+                    </div>
+                    <div class="float-right">
+                        <button type="button" id="getTeamExcel" class="k-button red" ng-click='getPDF("xlsx");' style="margin-right: 0.1em; vertical-align">
+                            <img src="images/icons/finefiles/32/excel.png" style="height:16px;width:16px; vertical-align: auto" /> xls
+                        </button>
+                    </div>
+
+
+
+
+                </form>
+            </div>
+            <div ng-show="user.minimiseTeam">
+                <h1 style="margin-bottom:0; line-height: 1.2em; font-size: 1.1em;">Project Team<a class="jjj" ng-click="user.minimiseTeam=false;" style="line-height: 1em; font-size: 1em"><img src="images/icons/fugue/chevron-expand.png" width="16" height="16"></a></h1>
+
+
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="grid_12" ng-init="user.minimiseEmail='false'">
+    <div class="block-border">
+        <div class="block-content">
+            <div ng-hide="user.minimiseEmail">
+                <h1 style="line-height: 1.2em;font-size: 1.1em" id="pingu">Team Email<a class="jjj" ng-click="user.minimiseEmail=true;" style="line-height: 1em; font-size: 1em"><img src="images/icons/fugue/chevron.png" width="16" height="16"></a></h1>
+
+                <table>
+                    <tr>
+                        <td colspan="3">
+                            <div>
+
+                                <form class="block-content form" id="simple-list-form" method="post" action="">
+                                    <fieldset class="grey-bg sizer" style="min-height: 399px; margin-bottom: 1.667em;" id="col1">
+                                        <legend style="font-weight:bold">
+                                            Email <img id="internalem" src="images/icons/fugue/mail.png" width="16" height="16">
+                                        </legend>
+
+                                        <table style="width:100%">
+                                            <tr>
+                                                <td style="min-width:50em;">
+                                                    <input type="checkbox" title="Internal" ng-show="false" ng-model="sp.email.internal" />
+                                                    <strong>Recipients(Internal)</strong>
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" title="Internal" ng-show="false" ng-model="sp.email.external" />
+                                                    <strong>Recipients(External)</strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div ng-show="sp.email.internal">
+                                                        <table style="padding:1em; margin:0; min-width:20em;">
+
+                                                            <tr ng-show="ShowHideInternalRecipient1">
+                                                                <td valign="baseline">
+                                                                    <input type="checkbox" ng-model="sp.email.chkInternal1" ng-change="ChkInternalOrChkExternal_click()">	{{selectedProject.initialBriefData.present1.name}}
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr ng-show="ShowHideInternalRecipient2">
+                                                                <td valign="baseline">
+                                                                    <input type="checkbox" ng-model="sp.email.chkInternal2" ng-change="ChkInternalOrChkExternal_click()">	{{selectedProject.initialBriefData.present2.name}}
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr ng-show="ShowHideInternalRecipient3">
+                                                                <td valign="baseline">
+                                                                    <input type="checkbox" ng-model="sp.email.chkInternal3" ng-change="ChkInternalOrChkExternal_click()">	{{selectedProject.initialBriefData.present3.name}}
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr ng-show="ShowHideInternalRecipient4">
+                                                                <td valign="baseline">
+                                                                    <input type="checkbox" ng-model="sp.email.chkInternal4" ng-change="ChkInternalOrChkExternal_click()">	{{selectedProject.initialBriefData.present4.name}}
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr ng-show="ShowHideInternalRecipient5">
+                                                                <td valign="baseline">
+                                                                    <input type="checkbox" ng-model="sp.email.chkInternal5" ng-change="ChkInternalOrChkExternal_click()">	{{selectedProject.initialBriefData.present5.name}}
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr ng-show="ShowHideInternalRecipient6">
+                                                                <td valign="baseline">
+                                                                    <input type="checkbox" ng-model="sp.email.chkInternal6" ng-change="ChkInternalOrChkExternal_click()">	{{selectedProject.initialBriefData.present6.name}}
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr ng-show="ShowHideInternalRecipient7">
+                                                                <td valign="baseline">
+                                                                    <input type="checkbox" ng-model="sp.email.chkInternal7" ng-change="ChkInternalOrChkExternal_click()">	{{selectedProject.initialBriefData.present7.name}}
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr ng-show="ShowHideInternalRecipient8">
+                                                                <td valign="baseline">
+                                                                    <input type="checkbox" ng-model="sp.email.chkInternal8" ng-change="ChkInternalOrChkExternal_click()">	{{selectedProject.initialBriefData.present8.name}}
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr ng-show="ShowHideInternalRecipient9">
+                                                                <td valign="baseline">
+                                                                    <input type="checkbox" ng-model="sp.email.chkInternal9" ng-change="ChkInternalOrChkExternal_click()">	{{selectedProject.initialBriefData.present9.name}}
+                                                                </td>
+                                                                <td></td>
+
+                                                            </tr>
+                                                            <tr ng-show="ShowHideInternalRecipient10">
+                                                                <td valign="baseline">
+                                                                    <input type="checkbox" ng-model="chkInternal10" ng-change="ChkInternalOrChkExternal_click()">	{{selectedProject.initialBriefData.present10.name}}
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2"></td>
+                                                            </tr>
+
+                                                        </table>
+
+                                                    </div>
+                                                    <div ng-hide="ShowHideInternalRecipient1 || ShowHideInternalRecipient2 || ShowHideInternalRecipient3 || ShowHideInternalRecipient4 || ShowHideInternalRecipient5 || ShowHideInternalRecipient6 || ShowHideInternalRecipient7 || ShowHideInternalRecipient8 || ShowHideInternalRecipient9 || ShowHideInternalRecipient10">
+                                                        No internal member(s) defined<br />
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div ng-show="sp.email.external">
+                                                        <table style="padding:1em; margin:0; min-width:20em;">
+
+                                                            <tr ng-show="ShowHideExternalRecipient1">
+                                                                <td valign="baseline">
+                                                                    <input type="checkbox" ng-model="sp.email.chkExternal1" ng-change="ChkInternalOrChkExternal_click()">	{{selectedProject.projectData.external1.name}}
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr ng-show="ShowHideExternalRecipient2">
+                                                                <td valign="baseline">
+                                                                    <input type="checkbox" ng-model="sp.email.chkExternal2" ng-change="ChkInternalOrChkExternal_click()">	{{selectedProject.projectData.external2.name}}
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr ng-show="ShowHideExternalRecipient3">
+                                                                <td valign="baseline">
+                                                                    <input type="checkbox" ng-model="sp.email.chkExternal3" ng-change="ChkInternalOrChkExternal_click()">	{{selectedProject.projectData.external3.name}}
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr ng-show="ShowHideExternalRecipient4">
+                                                                <td valign="baseline">
+                                                                    <input type="checkbox" ng-model="sp.email.chkExternal4" ng-change="ChkInternalOrChkExternal_click()">	{{selectedProject.projectData.external4.name}}
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr ng-show="ShowHideExternalRecipient5">
+                                                                <td valign="baseline">
+                                                                    <input type="checkbox" ng-model="sp.email.chkExternal5" ng-change="ChkInternalOrChkExternal_click()">	{{selectedProject.projectData.external5.name}}
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr ng-show="ShowHideExternalRecipient6">
+                                                                <td valign="baseline">
+                                                                    <input type="checkbox" ng-model="sp.email.chkExternal6" ng-change="ChkInternalOrChkExternal_click()">	{{selectedProject.projectData.external6.name}}
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr ng-show="ShowHideExternalRecipient7">
+                                                                <td valign="baseline">
+                                                                    <input type="checkbox" ng-model="sp.email.chkExternal7" ng-change="ChkInternalOrChkExternal_click()">	{{selectedProject.projectData.external7.name}}
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr ng-show="ShowHideExternalRecipient8">
+                                                                <td valign="baseline">
+                                                                    <input type="checkbox" ng-model="sp.email.chkExternal8" ng-change="ChkInternalOrChkExternal_click()">	{{selectedProject.projectData.external8.name}}
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+
+                                                        </table>
+                                                    </div>
+                                                    <div ng-hide="ShowHideExternalRecipient1 || ShowHideExternalRecipient2 || ShowHideExternalRecipient3 || ShowHideExternalRecipient4 || ShowHideExternalRecipient5 || ShowHideExternalRecipient6 || ShowHideExternalRecipient7 || ShowHideExternalRecipient8">
+                                                        No External member(s) defined<br />
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2"></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <br />
+                                                    <label>To:</label><textarea class='expanding' style="width:90%;" readonly="readonly" ng-model="sp.email.to"></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <label>CC:</label><textarea class='expanding' style="width:90%;" ng-model="sp.email.cc"></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <label>Subject:</label><textarea class='expanding' style="width:90%;" ng-model="sp.email.subject"></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <label>Message:</label>
+                                                    <a href="#" ng-click="showMessagePanel = ! showMessagePanel">
+                                                        <img style="vertical-align:text-bottom;" src="images/icons/fugue/cards-address.png" width="16" height="16"><span ng-show="showMessagePanel">-</span><span ng-hide="showMessagePanel">+</span>Pre-defined messages
+                                                    </a><br /><br />
+                                                    <div ng-show="showMessagePanel" style="margin-bottom: 1.5em;">
+                                                        <ul>
+                                                            <li>
+                                                                <input type="radio" ng-change="ChangeMessage(999)" name="messageGroup1" id="rad999" value="999" ng-model="sp.email.quickMessage" checked="checked" />
+                                                                <label for="rad999" style="font-size:0.8em;">No pre-defined message</label>
+                                                            </li>
+                                                            <li ng-repeat="message in predefined">   
+                                                                    <input type="radio" ng-change="ChangeMessage({{$index}})" name="messageGroup1" id="rad{{$index}}" ng-value="$index" ng-model="sp.email.quickMessage" />
+                                                                    <label for="rad{{$index}}" style="font-size:0.8em;">{{message}}</label>
+                                                            </li>
+                                                        </ul>
+                                                        
+
+
+
+                                                    </div>
+
+
+
+                                                    <textarea id="editorEmail"></textarea>
+
+
+
+
+
+                                                </td>
+                                            </tr>
+                                            <!-- <tr><td colspan="2"><label>Message:</label><textarea id="editor" rows="10" cols="20" style="width:90%;min-height: 50em" ng-model="sp.email.message"></textarea></td></tr>-->
+
+                                            <tr>
+                                                <td>
+                                                    <button class="k-button" ng-click="SendEmailViaServer()" ng-shppppow="sp.email.sendAvailable">send</button>&nbsp;&nbsp;
+                                                    <!--<a ng-show="sp.email.sendAvailable" ng-href='{{sp.email.mailToOutlookString}};'>open in outlook</a>-->
+                                                </td>
+                                                <td style="text-align:right;">
+                                                    <button class="k-button" ng-show="false" style="background:indianred" ng-click="showEmailPanel = ! showEmailPanel">cancel</button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        </
+                                    </fieldset>
+                                </form>
+
+
+
+
+
+
+                            </div>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div ng-show="user.minimiseEmail">
+                <h1 style="margin-bottom:0; line-height: 1.2em; font-size: 1.1em;">Team Email<a class="jjj" ng-click="user.minimiseEmail=false;" style="line-height: 1em; font-size: 1em"><img src="images/icons/fugue/chevron-expand.png" width="16" height="16"></a></h1>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+
+
+<!-- Risk Register pop up goes here -->
+<div ng-show="choice==='editRegister'" ng-click="buildGrid();">
+
+    <div id="rgrid" style="width:100%"></div>
+
+</div>

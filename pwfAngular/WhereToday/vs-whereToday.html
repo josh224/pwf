@@ -1,0 +1,91 @@
+﻿
+<section class="grid_12">
+    <div class="block-border">
+        <div class="block-content">
+            <h1 style="line-height: 1.2em; font-size: 1.1em">Project Details {{ selectedProject.projectNumber }} - {{ selectedProject.name }}</h1>
+            <form class="form" method="post" action="">
+                <fieldset class="grey-bg sizer">
+                    <legend style="font-weight:bold">What do you want to do today?</legend>
+                    <table style="table-layout:fixed; width:100%; padding:5px;">
+                        <tr style="min-height:30px;">
+                            <td align="left" valign="middle">
+                                <div>
+                                    <button style="min-width:14em; margin-bottom: 0.3em;" ng-disabled="data.whereAmI==='SelectedProjects'" class="k-button" ng-click="gotoLocation('SelectedProjects')">project details</button>
+                                    View/ add and email project contacts.
+                                </div>
+                                <div ng-hide="selectedProject.briefAndReviewStatus==='completed'">
+
+                                    <span>
+                                        <button style="min-width:14em; margin-bottom: 0.3em;" ng-disabled="data.whereAmI==='questions'" class="k-button" ng-click="gotoLocation('questions')">init brief/rev</button>
+                                    </span>
+                                    <span ng-show="selectedProject.briefAndReviewStatus==='not started'">Carry out</span><span ng-show="selectedProject.briefAndReviewStatus==='in progress'">Continue with</span>
+                                    the initial brief
+
+
+
+                                </div>
+                                <div ng-show="selectedProject.briefAndReviewStatus==='completed'">
+                                    <button style="min-width:14em; margin-bottom: 0.3em;" ng-disabled="data.whereAmI==='roleChange'" class="k-button" ng-click="gotoLocation('roleChange')">role change</button>
+                                    New initial brief / change of appointment.
+
+                                </div>
+                                <div>
+                                    <button style="min-width:14em; margin-bottom: 0.3em;" ng-disabled="data.whereAmI==='register'" class="k-button" ng-click="gotoLocation('register')">risk register</button>
+                                    View the risk register.
+                                </div>
+                                <div ng-show="selectedProject.riskRegisterStatus==='under review'">
+                                    <button style="min-width:14em; margin-bottom: 0.3em;" ng-disabled="data.whereAmI==='register'" class="k-button" ng-click="gotoLocation('register')">review</button>
+                                    Review the risk register.
+                                </div>
+                            </td>
+                            <td>
+
+                                <div ng-show="true">
+                                    <button style="min-width:14em; margin-bottom: 0.3em;" ng-disabled="data.whereAmI==='activities'" class="k-button" ng-click="gotoLocation('activities')">activities</button>
+                                    View this project's history.
+
+                                </div>
+                                <div>
+                                <button style="min-width:14em; margin-bottom: 0.3em;" ng-disabled="data.whereAmI==='documents'" class="k-button" ng-click="gotoLocation('documents')">documents</button>
+                                Download IM documents for your project.
+
+                                </div>
+                                <div>
+                                <button style="min-width:14em; margin-bottom: 0.3em;" class="k-button" ng-click="gotoLocation('home')">projects</button>
+                                Choose another project
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr style="min-height:30px;">
+                            <td>
+
+                            </td>
+                            <td>
+                                
+                            </td>
+
+                        </tr>
+                        <tr style="min-height:30px;">
+
+                            <td valign="middle" nowrap>
+                                
+                            </td>
+                            <td align="left" valign="middle">
+                                
+
+                            </td>
+                        </tr>
+
+                    </table>
+                </fieldset>
+                
+
+            </form>
+
+        </div>
+    </div>
+
+</section>
+
+<!-- end of panel -->

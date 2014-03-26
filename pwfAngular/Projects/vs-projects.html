@@ -1,0 +1,108 @@
+<section class="grid_12">
+    <style type="text/css">
+        .HLlabel {
+            padding: 1px 3px 2px;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #ffffff;
+            text-transform: uppercase;
+            white-space: nowrap;
+            background-color: #bfbfbf;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+
+            .HLlabel.important {
+                background-color: #c43c35;
+            }
+            .HLlabel.important1 {
+                background-color: #c43c35;
+            }
+
+            .HLlabel.warning {
+                background-color: #f89406;
+            }
+            .HLlabel.warning1 {
+                background-color: #f89406;
+            }
+            .HLlabel.success {
+                background-color: #46a546;
+            }
+ .HLlabel.success1 {
+                background-color: #46a546;
+            }
+
+            .HLlabel.notice {
+                background-color: #62cffc;
+            }
+    </style>
+    <div class="block-border">
+        <div class="block-content">
+            <div ng-hide="user.minimiseGrid">
+                <h1 style="line-height: 1.2em;font-size: 1.1em" id="pingu">Project Notification Pages<a class="jjj" ng-click="user.minimiseGrid=true;" style="line-height: 1em; font-size: 1em"><img src="images/icons/fugue/chevron.png" width="16" height="16"></a></h1>
+                <div>
+                    <a href="#" ng-click="user.showPnpIntro = ! user.showPnpIntro">
+                        <span ng-hide="user.showPnpIntro"><img style="vertical-align:text-bottom" src="images/icons/fugue/chevron-expand.png" width="16" height="16"></span><span ng-show="user.showPnpIntro"><img style="vertical-align:text-bottom" src="images/icons/fugue/chevron.png" width="16" height="16"></span>
+                    </a><span ng-show="user.showPnpIntro">
+                        The projects listed below are all those across the Practice for which a project notification has been completed.  To complete a new initial brief and review, or revise an existing, simply select by 'left clicking' with the cursor over the project in question - this initiates the initial brief and review process.
+                        To narrow down the projects showing, for example by cost centre, use the search and/ or filter facility; clicking on a column header will sort the data on the selected column, click the column header again to reverse the sort order.<br />
+                        Where the project you require is not included in the list, refer to the project partner/team leader and a) ensure that a project notification has been completed, or b) check that the project status hasn't been changed (on Nexus) to 'complete'.
+                        The 'Initial Brief and Review' should be completed as a minimum, by the Project Leader and Project Partner/Team Leader, however, it may include other members of the Internal Project Team such as the lead mechanical and electrical engineers, and project reviewers.
+                        <br />If you have any feedback regarding this element of the automated PMP, refer to <a href="mailto:gwyndavies@hoarelea.com?subject=Feedback on the ePMP&cc=joshjones@hoarele.com"><img style="vertical-align:text-bottom;" src="images/icons/fugue/mail.png" width="16" height="16">Gwyn Davies</a> or <a href="mailto:joshjones@hoarelea.com?subject=Feedback on the ePMP&cc=gwyndavies@hoarele.com"><img style="vertical-align:text-bottom;" src="images/icons/fugue/mail.png" width="16" height="16">Josh Jones</a></
+
+                            <br /> </span>
+
+                </div>
+
+
+
+
+                <div class="input-group">
+                    <input type="text" class="form-control" ng-model="searchText" placeholder="Search...">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-search">
+                            <img src="images/icons/fugue/magnifier.png" />
+                        </span>
+                    </span>
+                </div>
+
+
+
+
+
+
+                {{searchTextresult}}
+
+
+
+                <div id="example" class="k-content">
+                    <div id="clientsDb">
+
+
+                        <div id="pgrid"></div>
+
+                    </div>
+
+                    <style scoped>
+                        #clientsDb {
+                            width: 100%;
+                        }
+                    </style>
+
+
+                </div>
+
+
+            </div>
+
+            <div ng-show="user.minimiseGrid">
+                <h1 style="margin-bottom:0; line-height: 1.2em; font-size: 1.1em;">Project Notification Pages<a class="jjj" ng-click="user.minimiseGrid=false;" style="line-height: 1em; font-size: 1em"><img src="images/icons/fugue/chevron-expand.png" width="16" height="16"></a></h1>
+
+
+
+            </div>
+
+        </div>
+    </div>
+</section>

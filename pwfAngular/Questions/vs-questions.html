@@ -1,0 +1,368 @@
+<style>
+    .example-animate-container
+    {
+        position: relative;
+        background: white;
+        border: 1px solid black;
+        height: 40px;
+        overflow: hidden;
+    }
+
+    .example-animate-container > div
+    {
+        padding: 10px;
+    }
+
+    .include-example.ng-enter, .include-example.ng-leave
+    {
+        -webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+        -moz-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+        -o-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+        transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+        padding: 10px;
+    }
+
+    .include-example.ng-enter
+    {
+        top: -50px;
+    }
+
+    .include-example.ng-enter.ng-enter-active
+    {
+        top: 0;
+    }
+
+    .include-example.ng-leave
+    {
+        top: 0;
+    }
+
+    .include-example.ng-leave.ng-leave-active
+    {
+        top: 50px;
+    }
+</style>
+<!-- start of panel -->
+
+<section class="grid_12" id="questionsPanel">
+    <div class="block-border">
+        <div class="block-content" ng-init="user.showOptions=true">
+            <h1 style="line-height: 1.2em; font-size: 1.1em">
+                Risk Analysis for {{ selectedProject.projectNumber }} - {{
+                selectedProject.name }}
+            </h1>
+
+            <form class="form">
+                <fieldset class="grey-bg" style="min-height: 25px;">
+
+                    <legend>
+                        Options<a style="display: inline;" href="#" ng-click="user.showOptions = ! user.showOptions">
+                            <span style="display: inline;" ng-hide="user.showOptions"><img style="vertical-align:text-bottom; display:inline;" src="images/icons/fugue/chevron-expand.png" width="16" height="16"></span><span style="display: inline;" ng-show="user.showOptions"><img style="vertical-align:text-bottom; display: inline" src="images/icons/fugue/chevron.png" width="16" height="16"></span>
+                        </a>
+                    </legend>
+
+
+
+
+                    <div ng-show="user.showOptions">
+
+
+
+                        <table>
+                            <tr>
+                                <td width="150" height="30">
+                                    <strong>&nbsp;Role:</strong>
+                                </td>
+                                <td width="100" align="left" valign="middle" nowrap>
+                                    &nbsp;
+                                    <input type="radio" ng-model="role" value="0" ng-change="gotoHash('top'); calculateEnums()" id="optDesign" />
+                                    &nbsp;
+                                    <label for="optDesign">Design</label>
+                                </td>
+                                <td width="185" align="left" valign="middle" nowrap>
+                                    &nbsp;
+                                    <input type="radio" ng-model="role" value="2048" ng-change="gotoHash('top'); calculateEnums()" id="optRandA" />
+                                    &nbsp;
+                                    <label for="optRandA">Report and Advisory</label>
+                                </td>
+                                <td align="left" valign="middle"></td>
+                            </tr>
+
+                            <tr ng-show="role==0">
+                                <td height="30">
+                                    &nbsp;<strong>Location:</strong>
+                                </td>
+                                <td align="left" valign="middle">
+                                    &nbsp;
+                                    <input type="radio" ng-model="location" value="16" ng-change="gotoHash('top'); calculateEnums()" id="optUk" />
+                                    &nbsp;
+                                    <label for="optUk">UK</label>
+                                </td>
+                                <td align="left" valign="middle">
+                                    &nbsp;
+                                    <input type="radio" ng-model="location" value="32" ng-change="gotoHash('top'); calculateEnums()" id="optOverseas" />
+                                    &nbsp;
+                                    <label for="optOverseas">Overseas</label>
+                                </td>
+                                <td width="177" align="left" valign="middle">&nbsp;</td>
+                            </tr>
+
+                            <tr ng-show="role==0">
+                                <td height="30">
+                                    &nbsp;<strong>Description:</strong>
+                                </td>
+                                <td align="left" valign="middle">
+                                    &nbsp;
+                                    <input type="radio" ng-model="description" value="1" ng-change="gotoHash('top'); calculateEnums()" id="optNew" />
+                                    &nbsp;
+                                    <label for="optNew">New</label>
+                                </td>
+                                <td align="left" valign="middle">
+                                    &nbsp;
+                                    <input type="radio" ng-model="description" value="2" ng-change="gotoHash('top'); calculateEnums()" id="optRefurb" />
+                                    &nbsp;
+                                    <label for="optRefurb">Refurbishment</label>
+                                </td>
+                                <td align="left" valign="middle" nowrap>
+                                    &nbsp;
+                                    <input type="radio" ng-model="description" value="4" ng-change="gotoHash('top'); calculateEnums()" id="optHeritage" />
+                                    &nbsp;
+                                    <label for="optHeritage">Heritage</label>
+                                </td>
+                            </tr>
+                            <tr ng-show="role==0">
+                                <td height="30" valign="middle" nowrap>
+                                    &nbsp;<strong>Appointment:</strong>
+                                </td>
+                                <td colspan="3" align="left">
+                                    &nbsp;
+
+                                    <select name="select" ng-change="gotoHash('top'); calculateEnums()" ng-model="appointmentSelected" ng-options="a.value as a.name for a in appointments"></select>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <div ng-show="selectedProject.briefAndReviewStatus === 'completed'" class="float-left">
+                            <h3 style="color:red;">Only change these values if the appointment has changed</h3>
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+
+
+                </fieldset>
+            </form>
+            <div class="include-example">
+                
+
+                <br />
+                <!-- start of panel -->
+                <div>
+                    <div class="infos" ng-init="user.showRiskIntro=true;">
+                        <h3 style="display: inline;">Risk Analysis</h3>
+                        <a href="#" style="display: inline;" ng-click="user.showRiskIntro = ! user.showRiskIntro">
+                            <span ng-hide="user.showRiskIntro"><img style="vertical-align:text-bottom" src="images/icons/fugue/chevron-expand.png" width="16" height="16"></span><span ng-show="user.showRiskIntro"><img style="vertical-align:text-bottom" src="images/icons/fugue/chevron.png" width="16" height="16"></span>
+                        </a><span ng-show="user.showRiskIntro">
+                            In selecting the project data at the 'Options' section above, you have filtered out any risk analysis questions that are inappropriate to the nature of the project. To complete the risk analysis, answer the questions below to the best of your ability by ticking the box opposite the question if the subject matter of the question results in significant risk to the project or the Partnership. Generally, the questions have been worded such that an answer 'yes' results in risk, in which case the box should be ticked. Where the answer to the question results in no risk, generally the answer will be 'no,' and the box should be left un-ticked.
+                            Every ticked box will initiate a pop-up dialogue box complete the details to enter the risk onto the risk register. You can print-off the risk register in PDF format on completion of the analysis.<br />Note that the project risk score updates with the 'yes' answers to the questions, automatically forming the 'risk profile' of the project going forward. The e-PMP will recommend a list of standard IM templates with which to construct the PMP, this based on the 'risk profile' 'low', 'medium' or 'high' risk. The recommended list of standard IM templates can be over-ridden at the final stage of completion of this initial brief and review.<br />Certain questions are marked with a 'red flag.' These, if ticked, are considered to result in particularly significant risk and will be automatically notified to the project partner.<br />The initial brief and review can be updated at any time following first completion. <br />
+                            <br />If you have any feedback regarding this element of the automated PMP, refer to Gwyn Davies or Josh Jones'
+                        </span>
+
+
+                    </div>
+
+                </div>
+
+                <!-- end of panel
+                <table class="table">
+                <tr style="vertical-align: middle;">
+                <td style="vertical-align: middle;"><span class="number">01</span>Is a (standard) HL fee proposal in place<a  title="Gwyn - we should have these wherever we can!" ui-jq="tooltip"><img src="icons/fugue/question-white.png" width="16" height="16" class="float-right"></a></td><td style="vertical-align: middle;"><input type="checkbox" ng-click="addAnswers()" ng-model="questions.q1_RandA"></td><td style="vertical-align: middle;"><span class="number red" ng-show="questions.q1_RandA">3</span> </td>
+                </tr>
+                <tr style="vertical-align: middle;">
+                <td style="vertical-align: middle;"><span class="number">02</span>Has the contract of appointment been finalised?</td><td style="vertical-align: middle;"><input type="checkbox" ng-click="addAnswers()" ng-model="questions.q2_RandA"></td><td style="vertical-align: middle;"><span class="number red" ng-show="questions.q2_RandA">3</span> </td>
+                </tr>
+                <tr style="vertical-align: middle;">
+                <td style="vertical-align: middle;"><span class="number">03</span>Are HL duties clearly defined and available?</td><td style="vertical-align: middle;"><input type="checkbox" ng-click="addAnswers()" ng-model="questions.q3_RandA"></td><td style="vertical-align: middle;"><span class="number red" ng-show="questions.q3_RandA">1</span> </td>
+                </tr>
+                <tr style="vertical-align: middle;">
+                <td style="vertical-align: middle;"><span class="number">04</span>Is Client briefing information available<a  title="Gwyn - we should have these wherever we can!" ui-jq="tooltip"><img src="icons/fugue/question-white.png" width="16" height="16" class="float-right"></a></td><td style="vertical-align: middle;"><input type="checkbox" ng-click="addAnswers()" ng-model="questions.q4_RandA"></td><td style="vertical-align: middle;"><span class="number red" ng-show="questions.q4_RandA">2</span> </td>
+                </tr>
+                <tr style="vertical-align: middle;">
+                <td style="vertical-align: middle;"><span class="number">05</span>Have legislative/standards/guides been identified?</td><td style="vertical-align: middle;"><input type="checkbox"  ng-click="addAnswers()"ng-model="questions.q5_RandA"></td><td style="vertical-align: middle;"><span class="number red" ng-show="questions.q6_RandA">5</span> </td>
+                </tr>
+                <tr style="vertical-align: middle;">
+                <td style="vertical-align: middle;"><span class="number">06</span>Are there any special/unusual requirements<a  title="Gwyn - we should have these wherever we can!" ui-jq="tooltip"><img src="icons/fugue/question-white.png" width="16" height="16" class="float-right"></a></td><td style="vertical-align: middle;"><input type="checkbox"  ng-click="addAnswers()"ng-model="questions.q6_RandA"></td><td style="vertical-align: middle;"><span class="number red" ng-show="questions.q6_RandA">1</span> </td>
+                </tr>
+                <tr style="vertical-align: middle;"></tr>
+
+                </table>
+
+                -->
+                <div class="CSS_lTable_Example">
+                    <table class="table" style="width:100%;" width="100%">
+                        <tr>
+                            <td>
+                                <button ng-show="true" class="k-button" ng-click="riskReg()">View Risk Register</button>
+                            </td>
+                            <td> </td>
+                            <td> </td>
+                            <td>
+                                <div class="float-right">
+                                    <button type="button" id="btnGetPDF" class="k-button red" ng-click='getPDF("pdf");' style="margin-right: 0.1em;">
+                                        <img src="images/icons/finefiles/32/pdf.png" style="height:16px;width:16px; vertical-align: auto" /> pdf
+                                    </button>
+                                </div>
+                                <div class="float-right">
+                                    <button type="button" id="btnGetxl" class="k-button red" ng-click='getPDF("xlsx");' style="margin-right: 0.1em;">
+                                        <img src="images/icons/finefiles/32/excel.png" style="height:16px;width:16px; vertical-align: auto" /> xls
+                                    </button>
+                                </div>
+                                <button ng-show="false" class="k-button" ng-click="openWindow1()">View Mandatory Documents</button>
+                            </td>
+                        </tr>
+                        <tbody ng-repeat="section in sections">
+                            <tr>
+                                <th colspan="4">{{section.heading}}</th>
+                            </tr>
+                            <tr style="vertical-align: middle;  background-color: #D8E8F8;" ng-repeat="question in section.questions">
+                                <td style="vertical-align: middle;">
+                                    <span id="question_{{question.id}}" class="number" ng-class='{green: question.other !== "redflag", red: question.other === "redflag"}'>{{$index + 1}}</span>
+                                    {{question.text}}<span ng-show="question.showHelp">
+                                        <a style="text-decoration:none;">
+                                            <span> <img id="img_{{question.id}}" src="images/information-blue.png" width="16" height="16" style="vertical-align: text-bottom" class="fl3oat-right"> </span>
+                                        </a>
+                                    </span>
+                                </td>
+                                <td style="vertical-align: middle;">
+                                    <input type="checkbox" ng-checked="question.answered" ng-click="gotoHash('top'); showRiskForm(question, false)">
+                                </td>
+                                <td style="vertical-align: middle;">
+                                    <span ng-show="question.answered">
+                                        <a ng-click="showRiskForm(question, true)">edit</a>
+                                    </span>
+                                </td>
+                                <td style="vertical-align: middle;">
+                                    <span ng-show="question.answered" class="number red">{{question.weighting}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                            <tr>
+                                <td>
+                                    <button ng-show="false > 0" class="k-button" ng-click="openWindow()">View Risk Register</button>
+                                </td>
+                                <td> </td>
+                                <td> </td>
+                                <td>
+                                    <button ng-show="false" class="k-button" ng-click="openWindow1()">View Risk Register</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table" style="width:100%;" width="100%">
+                        <tr>
+                            <td>
+                                <h3>Initial brief and review carried out by:</h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div ng-init="calculateNames()">
+
+                                    <label style="display:inline-block; vertical-align: baseline" ng-show="it1" for="internalTeam1">{{selectedProject.initialBriefData.present1.name}}:</label>
+                                    <input ng-show="it1" type="checkbox" id="internalTeam1" ng-model="selectedProject.initialBriefData.present1.atbrief" ng-click="saveMe()">
+                                    <label style="display:inline-block; vertical-align:baseline" ng-show="it2" for="internalTeam2">{{selectedProject.initialBriefData.present2.name}}:</label>
+                                    <input ng-show="it2" type="checkbox" id="internalTeam2" ng-model="selectedProject.initialBriefData.present2.atbrief" ng-click="saveMe()">
+                                    <label style="display:inline-block; vertical-align:baseline" ng-show="it3" for="internalTeam3">{{selectedProject.initialBriefData.present3.name}}:</label>
+                                    <input ng-show="it3" type="checkbox" id="internalTeam3" ng-model="selectedProject.initialBriefData.present3.atbrief" ng-click="saveMe()">
+                                    <label style="display:inline-block; vertical-align:baseline" ng-show="it4" for="internalTeam4">{{selectedProject.initialBriefData.present4.name}}:</label>
+                                    <input ng-show="it4" type="checkbox" id="internalTeam4" ng-model="selectedProject.initialBriefData.present4.atbrief" ng-click="saveMe()">
+                                    <label style="display:inline-block; vertical-align:baseline" ng-show="it5" for="internalTeam5">{{selectedProject.initialBriefData.present5.name}}:</label>
+                                    <input ng-show="it5" type="checkbox" id="internalTeam5" ng-model="selectedProject.initialBriefData.present5.atbrief" ng-click="saveMe()">
+                                    <label style="display:inline-block; vertical-align:baseline" ng-show="it6" for="internalTeam6">{{selectedProject.initialBriefData.present6.name}}:</label>
+                                    <input ng-show="it6" type="checkbox" id="internalTeam6" ng-model="selectedProject.initialBriefData.present6.atbrief" ng-click="saveMe()">
+                                    <label style="display:inline-block; vertical-align:baseline" ng-show="it7" for="internalTeam7">{{selectedProject.initialBriefData.present7.name}}:</label>
+                                    <input ng-show="it7" type="checkbox" id="internalTeam7" ng-model="selectedProject.initialBriefData.present7.atbrief" ng-click="saveMe()">
+                                    <label style="display:inline-block; vertical-align:baseline" ng-show="it8" for="internalTeam8">{{selectedProject.initialBriefData.present8.name}}:</label>
+                                    <input ng-show="it8" type="checkbox" id="internalTeam8" ng-model="selectedProject.initialBriefData.present8.atbrief" ng-click="saveMe()">
+
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="float-right;" style="margin-bottom:5em;">
+                        <button ng-show="selectedProject.briefAndReviewStatus==='in progress'" class="k-button red float-right" ng-click="gotoHash('top');finishedInitialReview()">Complete the review</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Risk Register pop up goes here -->
+            <div kendo-window="modal" k-visible="false" k-modal="true" k-maximize="true" style="width:100%">
+                <div style="width:100%">
+
+                    <div id="grid" style="width:100%"></div>
+                    <script type="text/x-kendo-template" id="toolbar-template">
+                        <button type="button" class="k-button" id="printGrid">Print Grid</button>
+                    </script>
+                    <script>
+                        function printGrid() {
+                            var gridElement = $("#grid"),
+                                win = window.open('', '', 'width=800, height=500'),
+                                doc = win.document.open(),
+                                htmlStart =
+                                    '<!DOCTYPE html>' +
+                                    '<html>' +
+                                    '<head>' +
+                                    '<meta charset="utf-8" />' +
+                                    '<title>Kendo UI Grid</title>' +
+                                    '<link href="http://cdn.kendostatic.com/' + kendo.version + '/styles/kendo.common.min.css" rel="stylesheet" /> ' +
+                                    '<style>' +
+                                    'html { font: 11pt sans-serif; }' +
+                                    '.k-grid, .k-grid-content { height: auto !important; }' +
+                                    '.k-grid-toolbar, .k-grid-pager > .k-link { display: none; }' +
+                                    '</style>' +
+                                    '</head>' +
+                                    '<body>',
+                                htmlEnd =
+                                    '</body>' +
+                                    '</html>';
+
+                            doc.write(htmlStart + gridElement.clone()[0].outerHTML + htmlEnd);
+                            doc.close();
+                            win.print();
+                        }
+                    </script>
+
+                </div>
+
+            </div>
+            <!-- end of modal window for the Risk Register -->
+            <div kendo-window="modal1" k-visible="false" k-modal="true" style="width:100%">
+                <div style="width:100%">
+
+                    <div id="grid1" style="width:100%"></div>
+                    <script>
+
+
+                    </script>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- end of panel -->

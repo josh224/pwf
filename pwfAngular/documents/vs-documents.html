@@ -1,0 +1,183 @@
+﻿<!-- start of panel -->
+<section class="grid_12 ">
+    <div class="block-border">
+        <div class="block-content" ng-init="docIntroMin=false;docIntro=true">
+            <div ng-hide="docIntroMin">
+                <h1 style="line-height: 1.2em; font-size: 1.1em" id="pingu">
+                    Project Documentation
+                    <a class="jjj" ng-click="docIntroMin=true;" style="line-height: 1em; font-size: 1em">
+                        <img src="images/icons/fugue/chevron.png" width="16" height="16">
+                    </a>
+                </h1>
+                <div>
+                    <a href="#" ng-click="docIntro = ! docIntro">
+                        <span ng-hide="docIntro"> <img style="vertical-align: text-bottom" src="images/icons/fugue/chevron-expand.png" width="16" height="16"></span><span ng-show="docIntro"><img style="vertical-align: text-bottom" src="images/icons/fugue/chevron.png" width="16" height="16"></span>
+                    </a><span ng-show="docIntro">In selecting the project data at the 'Options' section (confirmed below) and completing the risk analysis questions appropriate to the nature of the project, your project has been provisionally classified as '{{analysis.risk}}' risk.
+
+                        The recommended make-up of Project Management Plan for ‘{{analysis.risk}}’ risk projects is given below.
+
+                        Please either ‘download’ as recommended or edit the recommended PMP make-up for download by ticking (for additional standard templates) or un-ticking (to remove the standard template) the box opposite the standard template in question. <br/> </span>
+
+                </div>
+                 <div>
+                <div ng-hide="analysis.score <71"> <h3>High risk Project (71% to 100%)</h3> 
+Note: all overseas projects automatically become high risk. </div>
+                <div ng-hide="analysis.score >=71">
+                    <div ng-show="analysis.score>20"> <h3>Normal risk Project (21% to 70%)</h3>Design Projects – can be small through to large scale depending on technical complexity/well within HL experience/reasonable time scales/normal project team interfaces e.g. single HL office/adequate fee, appointment etc.
+ </div>
+                
+                </div>
+                <div ng-hide="analysis.score>20">
+                    <h3>Low risk Project (0% to 20%)</h3>Survey and advisory commissions. Design Projects - well defined brief/small scale/low technical complexity/long time scale/simple project team interface e.g. single discipline/good fee, appointment etc.
+                </div>
+            </div>
+   
+
+           
+
+          
+                
+           
+            
+        </div>
+
+         <div ng-show="docIntroMin">
+                <h1 style="line-height: 1.2em; font-size: 1.1em" id="pingu">
+                    Project Documentation
+                    <a class="jjj" ng-click="docIntroMin=false;" style="line-height: 1em; font-size: 1em">
+                        <img src="images/icons/fugue/chevron-expand.png" width="16" height="16">
+                    </a>
+                </h1>
+
+            </div>
+
+
+
+    </div>
+   
+
+    <style scoped>
+        #treeview .k-sprite
+        {
+            background-image: url("styles/coloricons-sprite.png");
+        }
+        
+        .rootfolder
+        {
+            background-position: 0 0;
+        }
+        
+        .folder
+        {
+            background-position: 0 -16px;
+        }
+        
+        .pdf
+        {
+            background-position: 0 -32px;
+        }
+
+        .html
+        {
+            background-position: 0 -48px;
+        }
+        
+        .image
+        {
+            background-position: 0 -64px;
+        }
+        
+        .treeview-back
+        {
+            float: left;
+            margin: 0 0 2em;
+            padding: 20px;
+            -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.45), inset 0 0 30px rgba(0, 0, 0, 0.07);
+            -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.45), inset 0 0 30px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.45), inner 0 0 30px rgba(0, 0, 0, 0.07);
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+        }
+        
+        .container
+        {
+            margin: 0 30px;
+            float: left;
+            width: 220px;
+        }
+        
+        #result
+        {
+            float: left;
+            padding: 10px;
+            -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.45), inset 0 0 30px rgba(0, 0, 0, 0.07);
+            -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.45), inset 0 0 30px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.45), inner 0 0 30px rgba(0, 0, 0, 0.07);
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+        }
+    </style>
+        </div>
+</section>
+  <section class="grid_12 ">
+    <div class="block-border">
+        <div class="block-content" ng-init="docIntroMin=false;docIntro=true">  
+            <div class="float-right">
+                        <button type="button" id="btngetzip" class="k-button red" ng-click='getZip();' style="margin-right: 0.1em;">
+                            <img src="images\icons\fugue\folder-zipper.png" style="height:16px;width:16px; vertical-align: auto" /> zip
+                        </button>
+                    </div>
+        
+           <table style="width:100%">
+               <tr>
+                   <td style="width:60%; vertical-align:top"> <table class="table table-condensed table-bordered" style="width:98%">
+                        <thead>
+                            <tr>
+                                <th style="text-align:center; vertical-align:central">IMS Ref:</th>
+                                <th>Document Title:</th>
+                                <th style="text-align:center; vertical-align:central">Vers</th>
+                                <th style="text-align:center; vertical-align:central">Type</th>
+                                <th style="text-align:center; vertical-align:central">down</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="doc in documents">
+                                <td style="text-align:center; vertical-align:central">{{doc.id}}</td>
+                                <td>{{doc.text}}</td>
+                                <td style="text-align:center; vertical-align:central">{{doc.revLevel}}</td>
+                                <td style="text-align:center; vertical-align:central">
+                                    <img ng-src="{{doc.imageUrl}}"/>
+                                </td>
+                                <td style="text-align:center; vertical-align:central">
+                                    <input type="checkbox" ng-model="doc.status"/>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+             </td>
+                   <td style="width:40%; vertical-align:top"><div class="container">
+                        <div class="treeview-back ">
+                            <div id="treeview"></div>
+                        </div>
+                    </div></td>
+               </tr>
+           </table>
+                   
+
+            <div class="float-right">
+                        <button type="button" id="btngetzip1" class="k-button red" ng-click='getZip();' style="margin-right: 0.1em;">
+                            <img src="images\icons\fugue\folder-zipper.png" style="height:16px;width:16px; vertical-align: auto" /> zip
+                        </button>
+                    </div>
+
+        
+
+          
+            </div>
+        </div>
+      </section>
+    
+<!-- end of panel -->

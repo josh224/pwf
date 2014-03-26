@@ -1,0 +1,145 @@
+﻿   
+         <section class="grid_12 " ng-show="selectedProject.riskRegisterStatus==='under 9696review'">
+    <div class="block-border">
+        <div class="block-content">
+            <h1 style="line-height: 1.2em; font-size: 1.1em">Risk Register Review/</h1>
+
+            <div>
+to sign-off thie Risk Register click here                <br /><input type="text" /><btn class="k-button red">???</btn>
+            </div>
+            <script type="text/javascript">
+
+            </script>
+
+        </div>
+
+    </div>
+</section> 
+
+
+                    <!--new panel -->
+
+                    <section class="grid_12 " >
+                        <div class="block-border">
+                            <div class="block-content">
+                                <h1 style="line-height: 1.2em; font-size: 1.1em">Risk Register</h1>
+
+                                <div style="padding-bottom:10px;">
+                                    <div id="grid" style="width:100%"></div>
+                                    <div class="float-right">
+                                        <span ng-show="selectedProject.riskRegisterStatus==='under review'"><button type="button" class="k-button red" id="btn7" ng-click="toggleModal()" style="margin-right: 0.1em;">Review Register</button></span>
+                                        <button type="button" class="k-button" id="btnPdf" style="margin-right: 0.1em;">PDF Register</button>
+                                        <button type="button" id="btnPost" class="k-button">XLS Register</button>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+
+                                </script>
+
+                            </div>
+
+                        </div>
+                    </section>
+<div style="display: table;">
+    <button ng-hide="true" ng-click='toggleModal()'>Open Modal Dialog</button>
+
+
+    <modal-dialog show='modalShown'>
+           
+
+                           
+                           
+                               <section class="grid_12" style="margin:0px; width:100%; height:100%">
+                                   <div class="block-border" >
+
+                                       <form class="block-content form" id="simple_form" action="">
+                                           <div ng-show="selectedProject.riskRegisterStatus==='not ready for issue'">
+                                           <h1>Risk Register - Issue?</h1>
+                                           <p>Do you want to issue this register (via a review)?</p>
+                                           
+                                          </div>
+                                           <div ng-show="selectedProject.riskRegisterStatus==='under review'">
+                                               <h1>Risk Register - Review?</h1>
+                                               <p>Do you want to review and sign-off this register?</p>
+                                               
+                                           </div>
+
+
+
+
+
+
+
+                                           <div class="control-group">
+
+                                               <fieldset style="padding-left: 3em;">
+                                                   
+                                                       <legend><span ng-show="selectedProject.riskRegisterStatus==='not ready for issue'">Reviewer Email</span><span ng-show="selectedProject.riskRegisterStatus==='under review'">Issue Email </span></legend>
+                                                   <p ng-show="selectedProject.riskRegisterStatus==='not ready for issue'">If you have defined the internal project team you can allocate team members for reviewal of the Risk Register. </p>
+                                                   
+                                                   
+                                                   <p ng-show="selectedProject.riskRegisterStatus==='under review'">Inform the internal team of issue?</p>
+                                                   
+                                                       <div class="controls">
+                                                           <div ng-init="calculateNames()">
+                                                               <div ng-show="echeck" ng-init="calculateReviewerMessageEtc()" class="float-left">
+                                                                   <h4>select reviewer(s)</h4>
+                                                                   <label style="display:inline-block; vertical-align: baseline; color: black; font-weight:normal; font-size:0.8em;" ng-show="it1" for="internalTeam1">{{selectedProject.initialBriefData.present1.name}}:</label>
+                                                                   <input ng-show="it1" type="checkbox" ng-change="calculateReviewerMessageEtc()" id="internalTeam1" ng-model="selectedProject.initialBriefData.present1.reviewer">
+                                                                   <label style="display:inline-block; vertical-align: baseline; color: black; font-weight:normal; font-size:0.8em;" ng-show="it2" for="internalTeam2">{{selectedProject.initialBriefData.present2.name}}:</label>
+                                                                   <input ng-show="it2" type="checkbox" ng-change="calculateReviewerMessageEtc()" id="internalTeam2" ng-model="selectedProject.initialBriefData.present2.reviewer">
+                                                                   <label style="display:inline-block; vertical-align: baseline; color: black; font-weight:normal; font-size:0.8em;" ng-show="it3" for="internalTeam3">{{selectedProject.initialBriefData.present3.name}}:</label>
+                                                                   <input ng-show="it3" type="checkbox" ng-change="calculateReviewerMessageEtc()" id="internalTeam3" ng-model="selectedProject.initialBriefData.present3.reviewer">
+                                                                   <label style="display:inline-block; vertical-align: baseline; color: black; font-weight:normal; font-size:0.8em;" ng-show="it4" for="internalTeam4">{{selectedProject.initialBriefData.present4.name}}:</label>
+                                                                   <input ng-show="it4" type="checkbox" ng-change="calculateReviewerMessageEtc()" id="internalTeam4" ng-model="selectedProject.initialBriefData.present4.reviewer">
+                                                                   <label style="display:inline-block; vertical-align: baseline; color: black; font-weight:normal; font-size:0.8em;" ng-show="it5" for="internalTeam5">{{selectedProject.initialBriefData.present5.name}}:</label>
+                                                                   <input ng-show="it5" type="checkbox" ng-change="calculateReviewerMessageEtc()" id="internalTeam5" ng-model="selectedProject.initialBriefData.present5.reviewer">
+                                                                   <label style="display:inline-block; vertical-align: baseline; color: black; font-weight:normal; font-size:0.8em;" ng-show="it6" for="internalTeam6">{{selectedProject.initialBriefData.present6.name}}:</label>
+                                                                   <input ng-show="it6" type="checkbox" ng-change="calculateReviewerMessageEtc()" id="internalTeam6" ng-model="selectedProject.initialBriefData.present6.reviewer">
+                                                                   <label style="display:inline-block; vertical-align: baseline; color: black; font-weight:normal; font-size:0.8em;" style="display:inline-block; vertical-align: baseline; color: black; font-weight:normal; font-size:0.8em;" ng-show="it7" for="internalTeam7">{{selectedProject.initialBriefData.present7.name}}:</label>
+                                                                   <input ng-show="it7" type="checkbox" ng-change="calculateReviewerMessageEtc()" id="internalTeam7" ng-model="selectedProject.initialBriefData.present7.reviewer">
+                                                                   <label style="display:inline-block; vertical-align: baseline; color: black; font-weight:normal; font-size:medium;" ng-show="it8" for="internalTeam8">{{selectedProject.initialBriefData.present8.name}}:</label>
+                                                                   <input ng-show="it8" type="checkbox" ng-change="calculateReviewerMessageEtc()" id="internalTeam8" ng-model="selectedProject.initialBriefData.present8.reviewer">
+                                                                   <table>
+                                                                       <tr>
+                                                                           <td style="width:10%">To:</td>
+                                                                           <td><input readonly="readonly" style="width:100%" type="text" ng-model="issue.to" />  </td>
+                                                                       </tr>
+                                                                       <tr>
+                                                                           <td>CC:</td>
+                                                                           <td><input style="width:100%" type="text" ng-model="issue.cc" />  </td>
+                                                                       </tr>
+                                                                       <tr>
+                                                                           <td>Subject:</td>
+                                                                           <td><input style="width:100%" type="text" ng-model="issue.subject" />  </td>
+                                                                       </tr>
+                                                                   </table>
+                                                                   Message:
+                                                                   <textarea rows="4" style="width:100%" ng-model="issue.message">{{issue.message}}</textarea>
+                                                                   <button class="k-button red">send</button>
+                                                               </div>
+
+                                                               <div ng-hide="echeck">
+
+                                                                   <h4>No email recipients defined in internal team</h4>
+                                                               </div>
+
+                                                           </div>
+                                                       </div>
+                                               </fieldset>
+                                               </div>
+                                           <div class="modal-footer">
+                                               <button class="btn btn-primary" ng-click="toggleModal();reviewRequired()"><span ng-show="selectedProject.riskRegisterStatus==='not ready for issue'">start issue process</span><span ng-show="selectedProject.riskRegisterStatus==='under review'">issue register</span></button>
+                                               <button class="btn btn-warning" ng-click="toggleModal()">Cancel</button>
+                                           </div>
+
+                                       </form>
+                                   </div>
+                               </section>
+                           
+                     
+
+
+
+</modal-dialog>
+</div>
